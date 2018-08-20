@@ -6,6 +6,19 @@ package com.fuzamei.singleton;
  */
 public class LazyModeSingleton {
 
+    private static LazyModeSingleton lazyModeSingleton;
 
+    private LazyModeSingleton(){
+        if(lazyModeSingleton != null){
+            throw new RuntimeException();
+        }
+    }
+
+    public static final LazyModeSingleton getInstance(){
+        if(lazyModeSingleton == null){
+            return lazyModeSingleton = new LazyModeSingleton();
+        }
+        return lazyModeSingleton;
+    }
 
 }
